@@ -1,0 +1,112 @@
+:root {
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0b0e14;
+  color: #e6e6e6;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+  padding: 12px 16px;
+  background: #11151f;
+  border-bottom: 1px solid #232a39;
+}
+
+.toolbar h1 {
+  font-size: 14px;
+  margin: 0 12px 0 0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #8aa0c0;
+}
+
+button {
+  font: inherit;
+  font-size: 13px;
+  padding: 6px 12px;
+  border: 1px solid #2c3548;
+  border-radius: 6px;
+  background: #1b2333;
+  color: #e6e6e6;
+  cursor: pointer;
+}
+button:hover { background: #232d40; }
+button.danger { border-color: #5a2530; background: #2a1419; color: #ff9aa5; }
+
+label.opt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #b8c2d4;
+}
+
+input[type="number"] {
+  width: 90px;
+  font: inherit;
+  padding: 5px 8px;
+  border: 1px solid #2c3548;
+  border-radius: 6px;
+  background: #0e1320;
+  color: #e6e6e6;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 10px 16px;
+  background: #0e1320;
+  border-bottom: 1px solid #232a39;
+  font-variant-numeric: tabular-nums;
+}
+.stat { display: flex; flex-direction: column; }
+.stat .label { font-size: 11px; color: #6b7689; text-transform: uppercase; letter-spacing: 0.5px; }
+.stat .sub { font-size: 10px; color: #4d5870; }
+.stat .value { font-size: 20px; font-weight: 600; }
+.stat .value.warn { color: #ffcf6b; }
+.stat .value.bad { color: #ff6b75; }
+
+.divider { width: 1px; align-self: stretch; background: #2c3548; margin: 0 4px; }
+button.leak { border-color: #5a4a25; background: #2a2414; color: #ffcf6b; }
+button.leak:hover { background: #34301a; }
+
+/* The live "heartbeat" — a spinner driven by requestAnimationFrame.
+   When the main thread is blocked, this visibly stutters or freezes. */
+.heartbeat {
+  width: 18px;
+  height: 18px;
+  border: 3px solid #2c3548;
+  border-top-color: #58d6a0;
+  border-radius: 50%;
+}
+
+.node-field {
+  padding: 12px 16px;
+}
+
+/* keep each generated node small so we pack many on screen */
+.cell {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin: 1px;
+  border-radius: 2px;
+  background: #233047;
+  vertical-align: top;
+}
+.cell.deep > span { display: block; width: 100%; height: 100%; }
